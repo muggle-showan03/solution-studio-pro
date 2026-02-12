@@ -1,44 +1,45 @@
+<div align="center">
 
-```markdown
-# 🚀 Solution Studio Pro
+# 🚀 Solution Studio Pro  
+### Modern Frontend Application Built with React & TypeScript
 
-A modern web application built using React, TypeScript, and Vite with a clean and scalable UI powered by Tailwind CSS and shadcn-ui.
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-Fast-purple?logo=vite)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-Utility--First-38bdf8?logo=tailwindcss)
 
----
-
-## 📌 Overview
-
-Solution Studio Pro is a fast, responsive, and scalable frontend application built with modern web technologies. The project focuses on clean architecture, reusable UI components, and optimized performance.
-
----
-
-## 🛠️ Tech Stack
-
-- **Vite** – Fast build tool and development server
-- **React** – Component-based JavaScript library for building user interfaces
-- **TypeScript** – Adds static typing to JavaScript for better error handling and maintainability
-- **Tailwind CSS** – Utility-first CSS framework for rapid UI styling
-- **shadcn-ui** – Prebuilt reusable UI components built on Tailwind
+</div>
 
 ---
 
-## 📂 Project Structure
+## ✨ About The Project
 
-```
+**Solution Studio Pro** is a modern, scalable, and performance-optimized web application built using a cutting-edge frontend stack.  
 
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── hooks/
-│   ├── lib/
-│   ├── App.tsx
-│   └── main.tsx
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
+The project focuses on:
+- Clean architecture
+- Reusable UI components
+- Type-safe development
+- Responsive design
+- High performance
 
-````
+---
+
+## 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|----------|
+| **React** | Component-based UI development |
+| **TypeScript** | Static typing & better maintainability |
+| **Vite** | Lightning-fast development & build tool |
+| **Tailwind CSS** | Utility-first responsive styling |
+| **shadcn-ui** | Prebuilt accessible UI components |
+
+---
+
+## 📁 Project Structure
+
+
 
 ---
 
