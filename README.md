@@ -146,20 +146,11 @@ This project is open-source and available under the MIT License.
 
 ## 👨‍💻 Author
 
-Developed and maintained by [Your Name].
-
+Developed and maintained by Wasim Showan
 Feel free to contribute or raise issues to improve the project.
 
 ```
 
 ---
 
-If you want, I can also:
-- Add a professional “Architecture Explanation” section  
-- Add API integration documentation  
-- Add screenshots section  
-- Add contribution guidelines  
-- Optimize it specifically for resume/GitHub recruiters  
 
-Just tell me the purpose of the project.
-```
