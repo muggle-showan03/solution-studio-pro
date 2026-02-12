@@ -10,12 +10,6 @@ A modern web application built using React, TypeScript, and Vite with a clean an
 
 ---
 
-## 🌐 Live Demo
-
-🔗 https://solution-studio-pro.lovable.app/
-
----
-
 ## 📌 Overview
 
 Solution Studio Pro is a fast, responsive, and scalable frontend application built with modern web technologies. The project focuses on clean architecture, reusable UI components, and optimized performance.
