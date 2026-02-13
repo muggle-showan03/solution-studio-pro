@@ -50,13 +50,13 @@ Make sure you have **Node.js (v18 or later)** and **npm** installed.
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone (https://github.com/muggle-showan03/solution-studio-pro.git)
+git clone https://github.com/muggle-showan03/solution-studio-pro.git
 ````
 
 ### 2️⃣ Navigate to Project Directory
 
 ```bash
-cd <YOUR_PROJECT_NAME>
+cd solution-studio-pro
 ```
 
 ### 3️⃣ Install Dependencies
