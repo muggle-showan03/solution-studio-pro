@@ -50,7 +50,7 @@ Make sure you have **Node.js (v18 or later)** and **npm** installed.
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone <YOUR_GIT_URL>
+git clone (https://github.com/muggle-showan03/solution-studio-pro.git)
 ````
 
 ### 2️⃣ Navigate to Project Directory
