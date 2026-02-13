@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
-import { Code2, Sparkles, ArrowRight, Zap, Target, Trophy } from 'lucide-react';
+import { Code2, Sparkles, ArrowRight, Zap, Target, Trophy, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { getPoints } from '@/lib/points';
 
 interface ParsedProblem {
   title: string;
@@ -23,6 +24,11 @@ export default function ProblemInput() {
   const navigate = useNavigate();
   const [problemText, setProblemText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [points, setPoints] = useState(0);
+
+  useEffect(() => {
+    setPoints(getPoints());
+  }, []);
 
   const handleSubmit = async () => {
     if (!problemText.trim()) {
@@ -66,6 +72,10 @@ export default function ProblemInput() {
               <Code2 className="w-6 h-6 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold text-gradient-primary">CodeArena</span>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+            <Star className="w-4 h-4 text-warning fill-warning" />
+            <span className="text-sm font-semibold text-foreground">{points} pts</span>
           </div>
         </div>
       </header>
