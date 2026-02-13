@@ -10,6 +10,7 @@ import { generateTemplate } from '@/lib/codeTemplates';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { awardPoints, DIFFICULTY_POINTS } from '@/lib/points';
 import { 
   Code2, 
   Play, 
@@ -93,8 +94,13 @@ export default function CodingEnvironment() {
       setTestCases(results);
 
       if (data.allPassed) {
+        const { awarded, pointsEarned, totalPoints } = awardPoints(problem.id, problem.difficulty);
         setShowCelebration(true);
-        toast.success('🎉 All test cases passed!');
+        if (awarded) {
+          toast.success(`🎉 All test cases passed! +${pointsEarned} points (Total: ${totalPoints})`);
+        } else {
+          toast.success('🎉 All test cases passed! (Already solved)');
+        }
       } else {
         const passed = results.filter(tc => tc.passed).length;
         toast.info(`${passed}/${results.length} test cases passed`);
