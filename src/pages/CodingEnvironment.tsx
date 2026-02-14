@@ -5,12 +5,13 @@ import { CodeEditor } from '@/components/CodeEditor';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { TestCasePanel } from '@/components/TestCasePanel';
 import { WinningCelebration } from '@/components/WinningCelebration';
+import { Star } from 'lucide-react';
 import { Problem, Language, TestCase } from '@/types/problem';
 import { generateTemplate } from '@/lib/codeTemplates';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
-import { awardPoints, DIFFICULTY_POINTS } from '@/lib/points';
+import { awardPoints, DIFFICULTY_POINTS, getPoints } from '@/lib/points';
 import { 
   Code2, 
   Play, 
@@ -32,6 +33,7 @@ export default function CodingEnvironment() {
   const [isRunning, setIsRunning] = useState(false);
   const [showCelebration, setShowCelebration] = useState(false);
   const [executionTime, setExecutionTime] = useState<number | null>(null);
+  const [points, setPoints] = useState(getPoints());
 
   useEffect(() => {
     const storedProblem = sessionStorage.getItem('currentProblem');
@@ -96,6 +98,7 @@ export default function CodingEnvironment() {
       if (data.allPassed) {
         const { awarded, pointsEarned, totalPoints } = awardPoints(problem.id, problem.difficulty);
         setShowCelebration(true);
+        setPoints(totalPoints);
         if (awarded) {
           toast.success(`🎉 All test cases passed! +${pointsEarned} points (Total: ${totalPoints})`);
         } else {
@@ -197,6 +200,11 @@ export default function CodingEnvironment() {
                 ) : null}
               </span>
             )}
+
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+              <Star className="w-4 h-4 text-warning fill-warning" />
+              <span className="text-sm font-semibold text-foreground">{points} pts</span>
+            </div>
 
             <LanguageSelector selected={language} onSelect={setLanguage} />
           </div>
