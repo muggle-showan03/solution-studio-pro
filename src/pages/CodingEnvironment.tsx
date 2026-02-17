@@ -34,6 +34,21 @@ export default function CodingEnvironment() {
   const [showCelebration, setShowCelebration] = useState(false);
   const [executionTime, setExecutionTime] = useState<number | null>(null);
   const [points, setPoints] = useState(getPoints());
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(true);
+
+  // Timer
+  useEffect(() => {
+    if (!timerRunning) return;
+    const interval = setInterval(() => setElapsedTime(t => t + 1), 1000);
+    return () => clearInterval(interval);
+  }, [timerRunning]);
+
+  const formatTime = (seconds: number) => {
+    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+    const s = (seconds % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  };
 
   useEffect(() => {
     const storedProblem = sessionStorage.getItem('currentProblem');
@@ -98,6 +113,7 @@ export default function CodingEnvironment() {
       if (data.allPassed) {
         const { awarded, pointsEarned, totalPoints } = awardPoints(problem.id, problem.difficulty);
         setShowCelebration(true);
+        setTimerRunning(false);
         setPoints(totalPoints);
         if (awarded) {
           toast.success(`🎉 All test cases passed! +${pointsEarned} points (Total: ${totalPoints})`);
@@ -181,9 +197,13 @@ export default function CodingEnvironment() {
           </div>
 
           <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 border border-border font-mono">
+              <Clock className="w-4 h-4 text-muted-foreground" />
+              <span className={cn('text-sm font-semibold', !timerRunning && 'text-success')}>{formatTime(elapsedTime)}</span>
+            </div>
+
             {executionTime !== null && (
               <span className="text-xs text-muted-foreground flex items-center gap-1">
-                <Clock className="w-3 h-3" />
                 {executionTime}ms
               </span>
             )}
